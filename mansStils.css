@@ -4,7 +4,13 @@
     justify-content: center;
     align-items: center;
 }
-
+body {
+      background-image: url('images/IMG_4525.jpeg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+}
 .w3-bar-item.w3-button, 
 .w3-dropdown-hover .w3-button {
     background-color: rgba(255, 171, 62, 0.561); 

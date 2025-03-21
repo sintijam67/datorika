@@ -141,3 +141,36 @@ html {
 .w3-bar-item {
     margin-bottom: 50px; 
 }
+w3-dropdown-hover .w3-button {
+    background-color: black; 
+    color: white; 
+    padding: 14px 16px; 
+    font-size: 16px; 
+    border: none;
+    outline: none;
+}
+
+.w3-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black; 
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.w3-dropdown-hover:hover .w3-dropdown-content {
+    display: block;
+}
+
+.w3-dropdown-content a {
+    color: white; 
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.w3-dropdown-content a:hover {
+    background-color: grey;
+    color: black;
+}

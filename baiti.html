@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Datu lejupielādes kalkulators</title>
+ <style>
+ .calculator {
+  width: 400px;
+  height: 150px;
+  border: 1px solid blue;
+ }
+ span {
+ border: 1px solid #ccc;
+ }
+ </style>
+</head>
+<body>
+ <div class="calculator">
+ <label>Aprēķināt cik daudz informācijas var lejuplādēt</label>
+ <input type="number" class="seconds" min="1" placeholder="Ievadiet sekunžu skaitu"> sekundēs, ja interneta ātrums ir 25 Mbps.
+ <br>
+ <p> Atbilde </p>
+ <span class="result"></span>
+ <input type="radio" class="unit" name="unit1" value="kibi" checked> KiB
+ <input type="radio" class="unit" name="unit1" value="kil"> KB
+ 
+ </div>
+    <p> <a href="index.html">Sākums</a></p>
+    
+ 
+ <script>
+ function calculateData() {
+ let speedMbps = 25;
+ let input = document.querySelector('.seconds');
+ let resultDiv = document.querySelector('.result');
+ let unit = document.querySelector('.unit:checked').value;
+ 
+ let seconds = parseFloat(input.value);
+ if (isNaN(seconds) || seconds <= 0) {
+ resultDiv.textContent = '';
+ return;
+ }
+ 
+ let totalBytes = (speedMbps * 1000000 / 8) * seconds;
+ let result;
+ 
+ if (unit === "kibi") {
+ result = totalBytes / 1024;
+ } else {
+ result = totalBytes / 1000;
+ }
+ 
+ resultDiv.textContent = result.toFixed(2) + ' ' + (unit === "kibi" ? 'KiB' : 'KB');
+ }
+ 
+ document.querySelector('.seconds').addEventListener('input', calculateData);
+ document.querySelectorAll('.unit').forEach(radio => {
+ radio.addEventListener('change', calculateData);
+ });
+ </script>
+</body>
+</html>
